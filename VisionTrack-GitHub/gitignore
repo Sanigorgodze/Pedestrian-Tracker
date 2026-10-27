@@ -1,0 +1,33 @@
+# Python virtual environment
+ml_venv/
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Downloaded datasets and generated data
+data/raw/
+data/processed/
+
+# Model weights
+*.pt
+*.onnx
+
+# Large training artifacts
+experiments/*/
+experiments/*.cache
+
+# Keep small experiment summaries
+!experiments/*.csv
+!experiments/*.json
+
+# Generated predictions
+outputs/predictions/
+outputs/error_analysis/
+
+# Temporary files
+*.log
+.DS_Store
