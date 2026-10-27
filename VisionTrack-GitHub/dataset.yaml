@@ -1,8 +1,8 @@
 path: ./data/processed
 
-train: data/processed/images/train
-val: data/processed/images/val
-test: data/processed/images/test
+train: images/train
+val: images/val
+test: images/test
 
 names:
   0: person
