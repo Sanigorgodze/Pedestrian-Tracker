@@ -10,9 +10,8 @@ from fastapi.responses import FileResponse
 from ultralytics import YOLO
 
 
-# ----------------------------------
+
 # Configuration
-# ----------------------------------
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -25,9 +24,9 @@ CONFIDENCE = 0.31
 MAX_FILE_SIZE = 10 * 1024 * 1024
 
 
-# ----------------------------------
+
 # Initialize application
-# ----------------------------------
+
 
 app = FastAPI(
     title="VisionTrack",
@@ -38,18 +37,16 @@ app = FastAPI(
 model = YOLO(str(MODEL_PATH))
 
 
-# ----------------------------------
+
 # Frontend
-# ----------------------------------
 
 @app.get("/")
 def home():
     return FileResponse(str(HTML_PATH))
 
 
-# ----------------------------------
+
 # Health check
-# ----------------------------------
 
 @app.get("/health")
 def health():
@@ -60,9 +57,8 @@ def health():
     }
 
 
-# ----------------------------------
+
 # Pedestrian detection
-# ----------------------------------
 
 @app.post("/predict")
 def predict(file: UploadFile = File(...)):
