@@ -3,9 +3,9 @@ from ultralytics import YOLO
 import time 
 
 
-#----------------------
+
 # Project configuration
-#-----------------------
+
 ROOT = Path(__file__).resolve().parent.parent
 DATASET = ROOT / "dataset.yaml"
 EXPERIMENTS = ROOT / "experiments"
@@ -21,10 +21,9 @@ def main():
     #Train model 
     model.train(
         data = str(DATASET),
-        epochs = 15,
+        epochs = 5,
         imgsz = 320,
         batch = 2,
-
         device = "cpu",
         workers = 0,
         seed=42,
