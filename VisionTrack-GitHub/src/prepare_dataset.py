@@ -26,13 +26,16 @@ images = sorted(IMAGES_DIR.glob("*.png"))
 if len(images) != 170:
     raise RuntimeError(f"Expected 170 source images, found {len(images)}.")
 
-random.seed(42)
+random.seed(42)         # Reproducibility (42 just random number)
 random.shuffle(images)
 
-train_images = images[:119]
-val_images = images[119:144]
-test_images = images[144:]
+# Dividing dataset into three groups
+train_images = images[:119]    #70%
+val_images = images[119:144]   #14.7%
+test_images = images[144:]     #15.3%
 
+
+# Dictionary
 splits = {
     "train": train_images,
     "val": val_images,
@@ -47,10 +50,10 @@ def mask_to_yolo(mask):
 
     height, width = mask.shape[:2]
 
-    object_ids = np.unique(mask)
-    object_ids = object_ids[object_ids != 0]
+    object_ids = np.unique(mask)             # Identification of all values in mask
+    object_ids = object_ids[object_ids != 0] # Removing id 0 as background
 
-    labels = []
+    labels = []                              # Storing YOLO lables
 
     for object_id in object_ids:
 
