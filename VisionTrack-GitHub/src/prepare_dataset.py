@@ -57,7 +57,7 @@ def mask_to_yolo(mask):
 
     for object_id in object_ids:
 
-        ys, xs = np.where(mask == object_id)
+        ys, xs = np.where(mask == object_id) # Finds 1s and 2s in mask
 
         if len(xs) == 0:
             continue
